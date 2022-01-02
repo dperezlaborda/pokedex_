@@ -1,0 +1,31 @@
+<section class="form-section">
+  <form [formGroup]="formLogin" (ngSubmit)="ingresar()" class="form-container">
+    <h3>Ingresar</h3>
+
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="Email" />
+    <span *ngIf="formLogin.get('email')?.errors && formLogin.get('email')?.dirty">
+      <p *ngIf="formLogin.get('email')?.hasError('required')" style="margin-bottom: 0; font-size: 11px;">
+        El campo es obligatorio
+      </p>
+    </span>
+
+    <label>Contraseña</label>
+    <div style="display: flex;">
+      <input style="width: 90%;" [type]="show ? 'text' : 'password'" formControlName="clave" placeholder="Contraseña" />
+      <button type="button" class="bttn-mostrar" (click)="showPassword()">{{show ? 'Mostrar' : 'Ocultar'}}</button>
+    </div>
+    <span *ngIf="formLogin.get('clave')?.errors && formLogin.get('clave')?.dirty">
+      <p style="margin-bottom: 0; font-size: 11px;"
+        *ngIf="
+        formLogin.get('clave')?.hasError('minlength') ||
+        formLogin.get('clave')?.hasError('maxlength')
+        "
+      >
+        El campo debe tener entre 6 y 10 caracteres
+      </p>
+    </span>
+
+    <button type="submit" [disabled]="formLogin.invalid" class="bttn-iniciar">Iniciar sesión</button>
+  </form>
+</section>

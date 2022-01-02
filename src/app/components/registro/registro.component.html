@@ -1,0 +1,55 @@
+<section class="form-section">
+  <form [formGroup]="formRegistro" (ngSubmit)="registrar()" class="form-container">
+    <h3>Registro</h3>
+
+    <label>Nombre*</label>
+    <input type="text" formControlName="nombre" placeholder="Nombre" />
+    <span *ngIf="formRegistro.get('nombre')?.errors && formRegistro.get('nombre')?.dirty">
+      <p *ngIf="formRegistro.get('nombre')?.hasError('required')">
+        El campo es obligatorio
+      </p>
+      <p *ngIf="formRegistro.get('nombre')?.hasError('minlength')">
+        El campo debe tener al menos 4 caracteres
+      </p>
+    </span>
+
+    <label>Apellido*</label>
+    <input type="text" formControlName="apellido" placeholder="Apellido" />
+    <span
+      *ngIf="formRegistro.get('apellido')?.errors && formRegistro.get('apellido')?.dirty"
+    >
+      <p *ngIf="formRegistro.get('apellido')?.hasError('required')">
+        El campo es obligatorio
+      </p>
+    </span>
+
+    <label>Teléfono</label>
+    <input type="number" formControlName="telefono" placeholder="Teléfono" />
+
+    <label>Email*</label>
+    <input type="email" formControlName="email" placeholder="Email" />
+    <span *ngIf="formRegistro.get('email')?.errors && formRegistro.get('email')?.dirty">
+      <p *ngIf="formRegistro.get('email')?.hasError('required')">
+        El campo es obligatorio
+      </p>
+    </span>
+
+    <label>Contraseña*</label>
+    <input type="password" formControlName="clave" placeholder="Contraseña" />
+    <span *ngIf="formRegistro.get('clave')?.errors && formRegistro.get('clave')?.dirty">
+      <p *ngIf="formRegistro.get('clave')?.hasError('required')">
+        El campo es obligatorio
+      </p>
+      <p
+        *ngIf="
+          formRegistro.get('clave')?.hasError('minlength') ||
+          formRegistro.get('clave')?.hasError('maxlength')
+        "
+      >
+        El campo debe tener entre 6 y 10 caracteres
+      </p>
+    </span>
+
+    <button type="submit" [disabled]="formRegistro.invalid">Crear cuenta</button>
+  </form>
+</section>

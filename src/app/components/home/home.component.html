@@ -1,0 +1,10 @@
+<section>
+  <p>HOLA</p>
+  <div *ngFor="let pokemon of pokemones">
+    <p>Nombre: {{pokemon.name}}</p>
+    <img class="pokemon-img" src={{pokemon.sprites.front_default}} />
+    <!-- <p>{{pokemon.url}}</p> -->
+    <!-- <p>Foto</p> -->
+  </div>
+  <button type="button" (click)="getPokemonesById()">RANDOM POKEMON</button>
+</section>
