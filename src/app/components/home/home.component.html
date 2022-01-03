@@ -1,10 +1,19 @@
 <section>
-  <p>HOLA</p>
-  <div *ngFor="let pokemon of pokemones">
-    <p>Nombre: {{pokemon.name}}</p>
-    <img class="pokemon-img" src={{pokemon.sprites.front_default}} />
-    <!-- <p>{{pokemon.url}}</p> -->
-    <!-- <p>Foto</p> -->
-  </div>
-  <button type="button" (click)="getPokemonesById()">RANDOM POKEMON</button>
+    <div *ngFor="let pokemon of pokemones">
+        <p>Nombre: {{pokemon.name}}</p>
+        <p>Peso: {{pokemon.weight}}</p>
+        <img class="pokemon-img" src={{pokemon.sprites.front_default}} [hidden]="imageSpinner" (load)="this.imageSpinner = false;"/>
+        <div [hidden]="!imageSpinner" class="spinner"></div>
+        <!-- <p>Puntos de base: {{pokemon.stast[]}}</p> -->
+        Tipo:
+        <p>{{pokemonTypeOne}}</p>
+        <p *ngIf="pokemonTypeTwo">{{pokemonTypeTwo}}</p>
+        <div [ngClass]="{'water': pokemonTypeOne === 'water'}" class="type"></div>
+        <div [ngClass]="{'veneno' : pokemonTypeTwo === 'poison'}" class="type"></div>
+    </div>
+    <button type="button" (click)="getPokemonesById()">RANDOM POKEMON</button>
 </section>
+
+<!-- TODO: AGREGAR ICONOS A LOS TIPOS DE POKEMON -->
+<!-- TODO: AGREGAR TRANSLATE PIPE -->
+<!-- AGREGAR PIPES -->

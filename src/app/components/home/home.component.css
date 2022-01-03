@@ -1,0 +1,19 @@
+.spinner{
+  background-color: red;
+  width: 15px;
+  height: 15px;
+}
+
+.type{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.water{
+  background-color: blue;
+}
+
+.veneno{
+  background-color: blueviolet;
+}
