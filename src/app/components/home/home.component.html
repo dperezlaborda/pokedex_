@@ -8,9 +8,36 @@
         Tipo:
         <p>{{pokemonTypeOne}}</p>
         <p *ngIf="pokemonTypeTwo">{{pokemonTypeTwo}}</p>
-        <div [ngClass]="{'water': pokemonTypeOne === 'water'}" class="type"></div>
-        <div [ngClass]="{'veneno' : pokemonTypeTwo === 'poison'}" class="type"></div>
-    </div>
+        <div [ngSwitch]="pokemonTypeOne">
+          <div *ngSwitchCase="'bug'" class="type bug"></div>
+          <div *ngSwitchCase="'dark'" class="type dark"></div>
+          <div *ngSwitchCase="'dragon'" class="type dragon"></div>
+          <div *ngSwitchCase="'electric'" class="type electric"></div>
+          <div *ngSwitchCase="'fire'" class="type fire"></div>
+          <div *ngSwitchCase="'fairy'" class="type fairy"></div>
+          <div *ngSwitchCase="'fighting'" class="type fighting"></div>
+          <div *ngSwitchCase="'flying'" class="type flying"></div>
+          <div *ngSwitchCase="'ghost'" class="type ghost"></div>
+          <div *ngSwitchCase="'grass'" class="type grass"></div>
+          <div *ngSwitchCase="'ground'" class="type ground"></div>
+          <div *ngSwitchCase="'ice'" class="type ice"></div>
+          <div *ngSwitchCase="'normal'" class="type normal"></div>
+          <div *ngSwitchCase="'poison'" class="type poison"></div>
+          <div *ngSwitchCase="'psychic'" class="type psychic"></div>
+          <div *ngSwitchCase="'rock'" class="type rock"></div>
+          <div *ngSwitchCase="'steel'" class="type steel"></div>
+          <div *ngSwitchCase="'water'" class="type water"></div>
+        </div>
+        <div *ngIf="pokemonTypeTwo">
+          <div [ngSwitch]="pokemonTypeTwo">
+            <div *ngSwitchCase="'poison'" class="type poison"></div>
+            <div *ngSwitchCase="'water'" class="type water"></div>
+            <div *ngSwitchCase="'fire'" class="type fire"></div>
+            <div *ngSwitchCase="'bug'" class="type bug"></div>
+
+          </div>
+        </div>
+      </div>
     <button type="button" (click)="getPokemonesById()">RANDOM POKEMON</button>
 </section>
 

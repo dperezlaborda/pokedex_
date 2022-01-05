@@ -9,12 +9,14 @@ import { ProductosService } from '../../services/productos.service';
 export class HomeComponent implements OnInit {
 
   pokemones: any = [];
-  // pokemonID: string = '';
-  pokemonID: number = 72;
+  pokemonID: string = '';
+  // pokemonID: number = 72;
   pokemonData: any;
   imageSpinner: boolean = true;
   pokemonTypeOne: string = '';
   pokemonTypeTwo: string = '';
+  booleanooo: boolean = false;
+
 
   constructor(private productosSrv: ProductosService) {}
 
@@ -37,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getPokemonesById(): void {
-    // this.pokemonID = Math.floor(Math.random() * 150 + 1).toString();
+    this.pokemonID = Math.floor(Math.random() * 150 + 1).toString();
     this.productosSrv
       .getPokemonesById(this.pokemonID)
       .subscribe((data: any) => {
@@ -55,22 +57,11 @@ export class HomeComponent implements OnInit {
     if(this.pokemonData.types[1]){
       this.pokemonTypeTwo = this.pokemonData.types[1].type.name;
     }
-    console.log("Tipo 2", this.pokemonTypeTwo)
-    this.getIconType();
+    // type undefined NO FUNCIONA
+    // for (let i = 0; i < 10; i++){
+    //   this.pokemonTypes = this.pokemonData.types[i].type.name
+    //   console.log(this.pokemonTypes)
+    // }
   }
 
-
-  private getIconType(): void {
-    console.log('tipo', this.pokemonTypeOne)
-    switch (this.pokemonTypeOne) {
-      case 'water':
-        console.log('soy agua');
-      break;
-
-      case 'poison':
-        console.log('soy poison')
-      break;
-    }
-
-  }
 }
