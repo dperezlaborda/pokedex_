@@ -2,13 +2,16 @@
     <div *ngFor="let pokemon of pokemones">
         <p>Nombre: {{pokemon.name}}</p>
         <p>Peso: {{pokemon.weight}}</p>
+        <p>ID: {{pokemon.id}}</p>
         <img class="pokemon-img" src={{pokemon.sprites.front_default}} [hidden]="imageSpinner" (load)="this.imageSpinner = false;"/>
         <div [hidden]="!imageSpinner" class="spinner"></div>
         <!-- <p>Puntos de base: {{pokemon.stast[]}}</p> -->
         Tipo:
         <p>{{pokemonTypeOne}}</p>
         <p *ngIf="pokemonTypeTwo">{{pokemonTypeTwo}}</p>
+        <!-- NGSWITCH SOLO SE PUEDE PASAR UNA CONDICION -->
         <div [ngSwitch]="pokemonTypeOne">
+          <!-- TODO: PASAR A OTRO COMPONENTE -->
           <div *ngSwitchCase="'bug'" class="type bug"></div>
           <div *ngSwitchCase="'dark'" class="type dark"></div>
           <div *ngSwitchCase="'dragon'" class="type dragon"></div>
@@ -30,15 +33,33 @@
         </div>
         <div *ngIf="pokemonTypeTwo">
           <div [ngSwitch]="pokemonTypeTwo">
-            <div *ngSwitchCase="'poison'" class="type poison"></div>
-            <div *ngSwitchCase="'water'" class="type water"></div>
-            <div *ngSwitchCase="'fire'" class="type fire"></div>
+             <!-- 18 iconos -->
+             <!-- TODO: PASAR A OTRO COMPONENTE -->
             <div *ngSwitchCase="'bug'" class="type bug"></div>
-
+            <div *ngSwitchCase="'dark'" class="type dark"></div>
+            <div *ngSwitchCase="'dragon'" class="type dragon"></div>
+            <div *ngSwitchCase="'electric'" class="type electric"></div>
+            <div *ngSwitchCase="'fire'" class="type fire"></div>
+            <div *ngSwitchCase="'fairy'" class="type fairy"></div>
+            <div *ngSwitchCase="'fighting'" class="type fighting"></div>
+            <div *ngSwitchCase="'flying'" class="type flying"></div>
+            <div *ngSwitchCase="'ghost'" class="type ghost"></div>
+            <div *ngSwitchCase="'grass'" class="type grass"></div>
+            <div *ngSwitchCase="'ground'" class="type ground"></div>
+            <div *ngSwitchCase="'ice'" class="type ice"></div>
+            <div *ngSwitchCase="'normal'" class="type normal"></div>
+            <div *ngSwitchCase="'poison'" class="type poison"></div>
+            <div *ngSwitchCase="'psychic'" class="type psychic"></div>
+            <div *ngSwitchCase="'rock'" class="type rock"></div>
+            <div *ngSwitchCase="'steel'" class="type steel"></div>
+            <div *ngSwitchCase="'water'" class="type water"></div>
           </div>
         </div>
       </div>
-    <button type="button" (click)="getPokemonesById()">RANDOM POKEMON</button>
+    <button type="button" (click)="getRandomPokemon()">RANDOM POKEMON</button>
+    <!-- nose si va dentro del for -->
+    <button type="button" (click)="previuosPokemon()">pokemon anterior</button>
+    <button type="button" (click)="nextPokemon()">pokemon siguiente</button>
 </section>
 
 <!-- TODO: AGREGAR ICONOS A LOS TIPOS DE POKEMON -->
