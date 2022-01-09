@@ -1,0 +1,157 @@
+<div class="p-2 pokemon-types-section">
+  <p style="color: #ffffff">Tipo:</p>
+  <!-- NGSWITCH SOLO SE PUEDE PASAR UNA CONDICION -->
+	<div style="display: flex; justify-content: space-evenly; text-align: center;">
+		<div [ngSwitch]="pokemonTypeOne">
+			<div *ngSwitchCase="'bug'" class="type bug">
+				<img alt="" src="../../../assets/images/bicho.png" />
+				<p>Bicho</p>
+			</div>
+			<div *ngSwitchCase="'dark'" class="type dark">
+				<img alt="" src="../../../assets/images/oscuro.png" />
+				<p>Siniestro</p>
+			</div>
+			<div *ngSwitchCase="'dragon'" class="type dragon">
+				<img alt="" src="../../../assets/images/dragon.png" />
+				<p>Dragón</p>
+			</div>
+			<div *ngSwitchCase="'electric'" class="type electric">
+				<img alt="" src="../../../assets/images/electrico.png" />
+				<p>Eléctrico</p>
+			</div>
+			<div *ngSwitchCase="'fire'" class="type fire">
+				<img alt="" src="../../../assets/images/Fuego.png" />
+				<p>Fuego</p>
+			</div>
+			<div *ngSwitchCase="'fairy'" class="type fairy">
+				<img alt="" src="../../../assets/images/hada.png" />
+				<p>Hada</p>
+			</div>
+			<div *ngSwitchCase="'fighting'" class="type fighting">
+				<img alt="" src="../../../assets/images/peleador.png" />
+				<p>Lucha</p>
+			</div>
+			<div *ngSwitchCase="'flying'" class="type flying">
+				<img alt="" src="../../../assets/images/volador.png" />
+        <p>Volador</p>
+			</div>
+			<div *ngSwitchCase="'ghost'" class="type ghost">
+				<img alt="" src="../../../assets/images/fantasma.png" />
+        <p>Fantasma</p>
+			</div>
+			<div *ngSwitchCase="'grass'" class="type grass">
+				<img alt="" src="../../../assets/images/hierva.png" />
+        <p>Planta</p>
+			</div>
+			<div *ngSwitchCase="'ground'" class="type ground">
+				<img alt="" src="../../../assets/images/suelo.png" />
+        <p>Tierra</p>
+			</div>
+			<div *ngSwitchCase="'ice'" class="type ice">
+				<img alt="" src="../../../assets/images/hielo.png" />
+        <p>Hielo</p>
+			</div>
+			<div *ngSwitchCase="'normal'" class="type normal">
+				<img alt="" src="../../../assets/images/normal.png" />
+				<p>Normal</p>
+			</div>
+			<div *ngSwitchCase="'poison'" class="type poison">
+				<img alt="" src="../../../assets/images/veneno.png" />
+        <p>Veneno</p>
+			</div>
+			<div *ngSwitchCase="'psychic'" class="type psychic">
+				<img alt="" src="../../../assets/images/psiquico.png" />
+        <p>Psíquico</p>
+			</div>
+			<div *ngSwitchCase="'rock'" class="type rock">
+				<img alt="" src="../../../assets/images/roca.png" />
+        <p>Roca</p>
+			</div>
+			<div *ngSwitchCase="'steel'" class="type steel">
+				<img alt="" src="../../../assets/images/acero.png" />
+        <p>Acero</p>
+			</div>
+			<div *ngSwitchCase="'water'" class="type water">
+				<img alt="" src="../../../assets/images/Agua.png" />
+        <p>Agua</p>
+			</div>
+		</div>
+
+		<span *ngIf="pokemonTypeTwo">
+			<div [ngSwitch]="pokemonTypeTwo">
+        <div *ngSwitchCase="'bug'" class="type bug">
+          <img alt="" src="../../../assets/images/bicho.png" />
+          <p>Bicho</p>
+        </div>
+        <div *ngSwitchCase="'dark'" class="type dark">
+          <img alt="" src="../../../assets/images/oscuro.png" />
+          <p>Siniestro</p>
+        </div>
+        <div *ngSwitchCase="'dragon'" class="type dragon">
+          <img alt="" src="../../../assets/images/dragon.png" />
+          <p>Dragón</p>
+        </div>
+        <div *ngSwitchCase="'electric'" class="type electric">
+          <img alt="" src="../../../assets/images/electrico.png" />
+          <p>Eléctrico</p>
+        </div>
+        <div *ngSwitchCase="'fire'" class="type fire">
+          <img alt="" src="../../../assets/images/Fuego.png" />
+          <p>Fuego</p>
+        </div>
+        <div *ngSwitchCase="'fairy'" class="type fairy">
+          <img alt="" src="../../../assets/images/hada.png" />
+          <p>Hada</p>
+        </div>
+        <div *ngSwitchCase="'fighting'" class="type fighting">
+          <img alt="" src="../../../assets/images/peleador.png" />
+          <p>Lucha</p>
+        </div>
+        <div *ngSwitchCase="'flying'" class="type flying">
+          <img alt="" src="../../../assets/images/volador.png" />
+          <p>Volador</p>
+        </div>
+        <div *ngSwitchCase="'ghost'" class="type ghost">
+          <img alt="" src="../../../assets/images/fantasma.png" />
+          <p>Fantasma</p>
+        </div>
+        <div *ngSwitchCase="'grass'" class="type grass">
+          <img alt="" src="../../../assets/images/hierva.png" />
+          <p>Planta</p>
+        </div>
+        <div *ngSwitchCase="'ground'" class="type ground">
+          <img alt="" src="../../../assets/images/suelo.png" />
+          <p>Tierra</p>
+        </div>
+        <div *ngSwitchCase="'ice'" class="type ice">
+          <img alt="" src="../../../assets/images/hielo.png" />
+          <p>Hielo</p>
+        </div>
+        <div *ngSwitchCase="'normal'" class="type normal">
+          <img alt="" src="../../../assets/images/normal.png" />
+          <p>Normal</p>
+        </div>
+        <div *ngSwitchCase="'poison'" class="type poison">
+          <img alt="" src="../../../assets/images/veneno.png" />
+          <p>Veneno</p>
+        </div>
+        <div *ngSwitchCase="'psychic'" class="type psychic">
+          <img alt="" src="../../../assets/images/psiquico.png" />
+          <p>Psíquico</p>
+        </div>
+        <div *ngSwitchCase="'rock'" class="type rock">
+          <img alt="" src="../../../assets/images/roca.png" />
+          <p>Roca</p>
+        </div>
+        <div *ngSwitchCase="'steel'" class="type steel">
+          <img alt="" src="../../../assets/images/acero.png" />
+          <p>Acero</p>
+        </div>
+        <div *ngSwitchCase="'water'" class="type water">
+          <img alt="" src="../../../assets/images/Agua.png" />
+          <p>Agua</p>
+        </div>
+			</div>
+		</span>
+	</div>
+</div>

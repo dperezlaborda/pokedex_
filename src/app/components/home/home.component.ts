@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 
 @Component({
   selector: 'app-home',
@@ -8,85 +10,104 @@ import { ProductosService } from '../../services/productos.service';
 })
 export class HomeComponent implements OnInit {
 
-  pokemones: any = [];
+  // TODO: AGREGAR PUBLIC O PRIVATE A LAS VARIABLES, ORDENAR Y BORRAR LAS QUE NO SE USAN
+
   pokemonID: number = 1;
-  // pokemonID: number = 72;
   pokemonData: any;
   imageSpinner: boolean = true;
+
   pokemonTypeOne: string = '';
   pokemonTypeTwo: string = '';
-  prev: any; 
-  next: any;
 
-  constructor(private productosSrv: ProductosService) {}
+
+  weightInKilos: any;
+  heightInMeters: any;
+
+  pokemonName: string = '';
+  pokemonFront: any;
+  pokemonBack: any;
+
+  pokemonStats: any[] = [];
+
+  loading: boolean = true
+
+  pokemon : any;
+
+  constructor(
+    private productosSrv: ProductosService,
+    private matDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-    this.getRandomPokemon();
+    // SE INICIALIZA CON UN POKEMON RANDOM
+    this.getPokemon()
   }
 
-  private getTodosLosPokemones(): void {
-    this.productosSrv.getPokemones().subscribe(
-      (data: any) => {
-        console.log(data.results);
-        if (data.results) {
-          this.pokemones = data.results;
-        }
-      },
-      (error: any) => {
-        console.log(error, 'error');
+  // FUNCION PARA HACER EL LLAMADO AL SERVICE
+  private getPokemon(): void {
+    this.productosSrv.getPokemonesById(this.pokemonID).subscribe((data: any) =>{
+      this.pokemonData = data;
+      console.log(this.pokemonData)
+      this.pokemon = {
+        name : this.pokemonData.name,
+        front: this.pokemonData.sprites.front_default,
+        back: this.pokemonData.sprites.back_default,
+        weight : (this.pokemonData.weight * 0.1).toFixed(1),
+        height : (this.pokemonData.height * 0.1).toFixed(1),
+        stats: this.pokemonData.stats
       }
-    );
+      this.pokemonTypes();
+
+      this.pokemonName = this.pokemon.name;
+      this.pokemonFront = this.pokemon.front;
+      this.pokemonBack = this.pokemon.back;
+      this.heightInMeters = this.pokemon.height;
+      this.weightInKilos = this.pokemon.weight;
+      this.pokemonStats = this.pokemon.stats
+
+      console.log(this.pokemon);
+    })
   }
 
-  public getRandomPokemon(): void {
-    this.pokemonID = Math.floor(Math.random() * 150 + 1);
-    this.productosSrv
-      .getPokemonesById(this.pokemonID)
-      .subscribe((data: any) => {
-        this.pokemonData = data;
-        console.log(this.pokemonData);
-        this.getPokemonTypes();
-        this.pokemones.push(this.pokemonData);
-      });
-    this.pokemones = [];
-  }
 
-  private getPokemonTypes(): void {
-    this.pokemonTypeOne = this.pokemonData.types[0].type.name;
-    if(this.pokemonData.types[1]){
+  // FUNCION PARA TRAER LOS TIPOS DE POKEMON
+  private pokemonTypes(): void {
+    // pokemon único tipo
+    if(this.pokemonData.types.length === 1){
+      this.pokemonTypeOne = this.pokemonData.types[0].type.name;
+      this.pokemonTypeTwo = '';
+    }else{  // pokemon 2 tipos
+      this.pokemonTypeOne = this.pokemonData.types[0].type.name;
       this.pokemonTypeTwo = this.pokemonData.types[1].type.name;
     }
-    // type undefined NO FUNCIONA
-    // for (let i = 0; i < 10; i++){
-    //   this.pokemonTypes = this.pokemonData.types[i].type.name
-    //   console.log(this.pokemonTypes)
-    // }
   }
 
+  // FUNCION PARA OBTENER UN POKEMON RANDOM
+  public getRandomPokemon(): void {
+    this.pokemonID = Math.floor(Math.random() * 150 + 1);
+    this.getPokemon();
+  }
 
   public previuosPokemon(): void {
-    this.prev = this.pokemonID --;
-    this.productosSrv.getPokemonesById(this.pokemonID).subscribe((data: any)=>{
-      this.pokemonData = data;
-      console.log(this.pokemonData);
-      this.getPokemonTypes();
-      this.pokemones.push(this.pokemonData);
-    })
-    this.pokemones = [];
-    console.log('prev', this.prev)
+    this.pokemonID --;
+    this.getPokemon();
   }
-  
+
   public nextPokemon(): void{
-    this.next = this.pokemonID++;
-    this.productosSrv.getPokemonesById(this.pokemonID).subscribe((data: any)=>{
-      this.pokemonData = data;
-      this.getPokemonTypes();
-      this.pokemones.push(this.pokemonData);
-    })
-    this.pokemones = [];
+    this.pokemonID++;
+    this.getPokemon();
   }
+
+  public openDetail(): void{
+    this.matDialog.open(PokemonDetailComponent, {
+      data : {
+        id: this.pokemonID,
+        name: this.pokemonName,
+        stats: this.pokemonStats,
+        image: this.pokemonData.sprites.front_shiny
+      }
+    })
+  }
+
 
 }
-
-
-// TODO: EL LLAMADO AL SERVICE JUNTARLO EN UNA FUNCION

@@ -38,7 +38,4 @@ export class ProductosService {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
   }
 
-  createPokemon(){
-
-  }
 }

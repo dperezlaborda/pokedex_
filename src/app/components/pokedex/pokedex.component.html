@@ -1,0 +1,14 @@
+<div *ngFor="let pokemon of pokemones">
+  <div class="rectangle pt-3 text-center">
+    <span style="font-size:20px;">{{pokemon.name | titlecase}}</span>
+  </div>
+  <div class="grey-rectangle">
+    <div class="black-rectangle p-2">
+      <p class="mb-0 white">ID: #{{pokemon.id}}</p>
+      <div class="center">
+        <img class="pokemon-img" src={{pokemon.sprites.front_default}} />
+        <img class="pokemon-img" src={{pokemon.sprites.back_default}} />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.modal-container{
+  background-color: #D30A40;
+  width: 500px;
+  height: 600px;
+  padding: 20px;
+}
+
+::ng-deep.mat-dialog-container {
+  padding: 0px !important;
+}
+
+.modal-container h2{
+  margin-bottom: 0;
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+.modal-container button{
+  font-family: 'Roboto Mono', monospace !important;
+}

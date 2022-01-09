@@ -1,0 +1,32 @@
+<div class="modal-container">
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <h2 mat-dialog-title>{{name | titlecase}}</h2>
+        <p>ID: #{{id}}</p>
+      </div>
+      <img  src="{{image}}"/>
+    </div>
+
+    <div class="progressbar-container">
+      <h2>PS</h2>
+      <ngb-progressbar type="success" [value]="ps" class="mb-3"></ngb-progressbar>
+
+      <h2>Ataque</h2>
+      <ngb-progressbar type="success" [value]="attack" class="mb-3"></ngb-progressbar>
+
+      <h2>Defensa</h2>
+      <ngb-progressbar type="success" [value]="defense" class="mb-3"></ngb-progressbar>
+
+      <h2>Ataque especial</h2>
+      <ngb-progressbar type="success" [value]="specialA" class="mb-3"></ngb-progressbar>
+
+      <h2>Defensa especial</h2>
+      <ngb-progressbar type="success" [value]="specialD" class="mb-3"></ngb-progressbar>
+
+      <h2>Velocidad</h2>
+      <ngb-progressbar type="success" [value]="speed" class="mb-3"></ngb-progressbar>
+    </div>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cerrar</button>
+  </mat-dialog-actions>
+</div>

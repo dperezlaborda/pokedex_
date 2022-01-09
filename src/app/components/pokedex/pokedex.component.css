@@ -1,0 +1,48 @@
+.rectangle{
+  background-color: #5FC480;
+  width: 150px;
+  height: 50px;
+  margin-bottom: 22px;
+  border-radius: 10px;
+}
+
+.grey-rectangle{
+  background-color: #E3E3E3;
+  width: 280px;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.grey-rectangle::after{
+  content: "";
+  background: #D30A40;
+  height: 50px;
+  width: 50px;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: block;
+  position: absolute;
+  bottom:-25px;
+  left: -25px;
+}
+
+.black-rectangle{
+  width: 100%;
+  background-color: #084035;
+  height: 138px;
+  border-radius: 10px;
+}
+
+.pokemon-img{
+  width: 110px;
+}
+
+.white{
+  color: #FFFFFF;
+}
