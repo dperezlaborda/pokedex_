@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 // pages
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
@@ -22,7 +21,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { PokemonTypesComponent } from './components/pokemon-types/pokemon-types.component';
-import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { PokemonStatsComponent } from './components/pokemon-stats/pokemon-stats.component';
 import { RegistroDetailComponent } from './components/registro-detail/registro-detail.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 
@@ -34,7 +33,7 @@ import { DetalleComponent } from './pages/detalle/detalle.component';
     RegistroComponent,
     NavbarComponent,
     PokemonTypesComponent,
-    PokemonDetailComponent,
+    PokemonStatsComponent,
     RegistroDetailComponent,
     DetalleComponent
   ],

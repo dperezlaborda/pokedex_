@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import { MatDialog } from '@angular/material/dialog';
-import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
+import { PokemonStatsComponent } from '../pokemon-stats/pokemon-stats.component';
 import { Pokemon, PokemonTypes, PokemonStats  } from '../../interface/Pokemon';
 
 @Component({
@@ -13,23 +13,20 @@ export class PokedexComponent implements OnInit {
 
   // TODO: AGREGAR PUBLIC O PRIVATE A LAS VARIABLES, ORDENAR Y BORRAR LAS QUE NO SE USAN
 
-  pokemonID: number = 1;
-  imageSpinner: boolean = true;
-  pokemones: Pokemon[] = [];
-  pokemonTypeOne: string = '';
-  pokemonTypeTwo: string = '';
-  weightInKilos: any;
-  heightInMeters: any;
-  pokemonName: string = '';
-  pokemonFront: string = '';
-  pokemonBack: string = '';
-  pokemonStats: PokemonStats[] = [];
-  pokemonShiny: string = '';
+  // variables para renderizar HTML
+  public pokemonID: number = 1;
+  public pokemonTypeOne: string = '';
+  public pokemonTypeTwo: string = '';
+  public weightInKilos: any;
+  public heightInMeters: any;
+  public pokemonName: string = '';
+  public pokemonFront: string = '';
+  public pokemonBack: string = '';
 
-  loading: boolean = true
-
-  pokemon : any;
-
+  // variables que se usan en .ts
+  private pokemones: Pokemon[] = [];
+  private pokemonStats: PokemonStats[] = [];
+  private pokemonShiny: string = '';
 
   constructor(
     private productosSrv: ProductosService,
@@ -45,8 +42,9 @@ export class PokedexComponent implements OnInit {
   private getPokemon(): void {
     this.productosSrv.getPokemonesById(this.pokemonID).subscribe((data: any) =>{
       const pokemonData = data
-      console.log(data.id)
-      this.pokemon = {
+
+      let pokemon;
+      pokemon = {
         name : pokemonData.name,
         front: pokemonData.sprites.front_default,
         back: pokemonData.sprites.back_default,
@@ -58,15 +56,15 @@ export class PokedexComponent implements OnInit {
       this.pokemonTypes();
 
 
-      this.pokemonName = this.pokemon.name;
-      this.pokemonFront = this.pokemon.front;
-      this.pokemonBack = this.pokemon.back;
-      this.heightInMeters = this.pokemon.height;
-      this.weightInKilos = this.pokemon.weight;
-      this.pokemonStats = this.pokemon.stats
-      this.pokemonShiny = this.pokemon.frontShiny
+      this.pokemonName = pokemon.name;
+      this.pokemonFront = pokemon.front;
+      this.pokemonBack = pokemon.back;
+      this.heightInMeters = pokemon.height;
+      this.weightInKilos = pokemon.weight;
+      this.pokemonStats = pokemon.stats;
+      this.pokemonShiny = pokemon.frontShiny;
 
-      this.pokemones.push(pokemonData)
+      this.pokemones.push(pokemonData);
     })
   }
 
@@ -104,8 +102,9 @@ export class PokedexComponent implements OnInit {
     this.getPokemon();
   }
 
+  // FUNCION PARA ABRIR MODAL DE PUNTOS DE BASE
   public openDetail(): void{
-    this.matDialog.open(PokemonDetailComponent, {
+    this.matDialog.open(PokemonStatsComponent, {
       data : {
         id: this.pokemonID,
         name: this.pokemonName,

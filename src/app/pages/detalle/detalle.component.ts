@@ -11,11 +11,13 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class DetalleComponent implements OnInit {
 
   public id: any;
-  public pokemon: any;
-  public weight: any;
-  public height: any;
-  public img: any;
+  public name: string = '';
+  public weight: string = '';
+  public height: string = '';
+  public img: string = '';
   public abilities: any[] = [];
+  public pokemonTypeOne: string = '';
+  public pokemonTypeTwo: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,7 +32,14 @@ export class DetalleComponent implements OnInit {
 
   private getPokemonesById(): void{
     this.productosSrv.getPokemonesById(this.id).subscribe((data: any) =>{
-      this.pokemon = data;
+      //TODO: HACER LA LOGICA EN EL COMPONENTE app-pokemon-types Y PASARLE NADA MAS EL ARRAY DE TYPES POR PARAMETROS
+      if(data.types.length === 1){
+        this.pokemonTypeOne = data.types[0].type.name;
+        this.pokemonTypeTwo = '';
+      }else{
+        this.pokemonTypeOne = data.types[0].type.name;
+        this.pokemonTypeTwo = data.types[1].type.name;
+      }
       this.weight = (data.weight * 0.1).toFixed(1);
       this.height = (data.height * 0.1).toFixed(1);
       this.img = data.sprites.other.home.front_default;
@@ -39,9 +48,9 @@ export class DetalleComponent implements OnInit {
   }
 
   private getPokemonAbilities(): void{
-    this.productosSrv.getPokemonAbilities(this.id).subscribe((data: any) =>{
+    this.productosSrv.getPokemonAbilities(this.id).subscribe((data: Pokemon[]) =>{
       this.abilities.push(data);
-      console.log(this.abilities[0][0]);
+      console.log(this.abilities);
     })
   }
 

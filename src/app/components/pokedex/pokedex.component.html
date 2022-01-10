@@ -1,6 +1,7 @@
 <section class="container mt-5">
 	<div class="center">
-    <!-- TODO: HACER UN COMPONENTE ???  SE SACO EL FOR PORQUE CADA VEZ QUE SE RENDERIZABA LA PAGINA SE CARGABA TODO LO QUE SE ENCONTRABA DENTRO-->
+    <!-- SE SACO EL FOR PORQUE CADA VEZ QUE SE RENDERIZABA LA PAGINA SE CARGABA TODO LO QUE SE ENCONTRABA DENTRO-->
+    <!-- IZQ START -->
       <div class="pokedex left">
           <div style="display: flex; justify-content: space-between;">
             <div class="circle"></div>
@@ -18,7 +19,7 @@
             </div>
           </div>
 
-        <!-- BOTONES START-->
+        <!-- BOTONES IZQ START-->
         <div class="center mt-3">
           <div class="center bttn-container">
             <button mat-icon-button type="button" (click)="previuosPokemon()">
@@ -32,11 +33,11 @@
         <div class="center mt-4">
           <button type="button" class="btn btn-warning" (click)="getRandomPokemon()">Random Pokemon</button>
         </div>
-        <!-- BOTONES END -->
+        <!-- BOTONES IZQ END -->
       </div>
+    <!-- IZQ END -->
 
-
-    <!-- TODO: HACER UN COMPONENTE ?? -->
+    <!-- DERECHA START -->
     <div class="pokedex right">
       <div style="display: flex; justify-content: space-between;">
         <div class="black-rectangles white">
@@ -55,13 +56,15 @@
         </div>
         <!-- POKEMON TYPES END -->
 
+        <!-- BOTONES DER START -->
         <div class="center">
           <button type="button" class="btn btn-dark mt-5" (click)="openDetail()">Ver Puntos de Base</button>
         </div>
         <div class="center mt-4">
           <button type="button" class="btn btn-dark" routerLink="/pokemon/{{pokemonID}}">Ver Detalles</button>
         </div>
-
+        <!-- BOTONES IZQ START -->
     </div>
+    <!-- DERECHA END -->
 	</div>
 </section>

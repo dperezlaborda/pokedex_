@@ -5,15 +5,32 @@
   padding: 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
+.title{
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace !important;
+  margin-bottom: 0;
+}
+
 
 .left{
-  background-color: black;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 360px;
+  width: 360px;
+  text-align: center;
 }
 
-.right{
+.types-container{
   display: flex;
-  align-items: center;
+  justify-content: center;
+  height: 130px;
+  width: 200px;
+  background-color:#084035 ;
+  border-radius: 10px;
 }
 
 .img-container{

@@ -3,11 +3,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PokemonStats } from '../../interface/Pokemon';
 
 @Component({
-  selector: 'app-pokemon-detail',
-  templateUrl: './pokemon-detail.component.html',
-  styleUrls: ['./pokemon-detail.component.css']
+  selector: 'app-pokemon-stats',
+  templateUrl: './pokemon-stats.component.html',
+  styleUrls: ['./pokemon-stats.component.css']
 })
-export class PokemonDetailComponent implements OnInit {
+export class PokemonStatsComponent implements OnInit {
 
   public id: number = 1;
   public name: string = '';
@@ -29,7 +29,6 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.initializePokemon();
     this.showStats();
-    console.log(this.data)
   }
 
   initializePokemon() {

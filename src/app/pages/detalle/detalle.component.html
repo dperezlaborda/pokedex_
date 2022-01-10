@@ -1,10 +1,24 @@
 <div class="container detail mt-5">
   <div class="left">
-    <p>ID: #{{pokemon.id}}</p>
-    <h2>{{pokemon.name | titlecase}}</h2>
+    <p>ID: #{{id}}</p>
+    <h2>{{name | titlecase}}</h2>
     <div>
-      <p>Peso: {{weight}} kg</p>
-      <p>Altura: {{height}} m</p>
+      <h3 class="title">Peso</h3>
+      <p>{{weight}} kg</p>
+      <h3 class="title">Altura</h3>
+      <p>{{height}} m</p>
+    </div>
+    <div *ngIf="abilities.length">
+      <h3 class="title">Habilidades: </h3>
+      <p>{{abilities[0][0].ability.name | titlecase}}</p>
+      <p>{{abilities[0][1].ability.name | titlecase}}</p>
+      <p *ngIf="abilities[0][2]">{{abilities[0][2].ability.name | titlecase}}</p>
+    </div>
+  </div>
+  <div class="center">
+    <mat-icon style="font-size: 100px; color:#fff; font-weight: bold; padding-left: 40px;">arrow_forward</mat-icon>
+    <div class="types-container">
+      <app-pokemon-types [pokemonTypeOne]= "pokemonTypeOne" [pokemonTypeTwo]="pokemonTypeTwo"></app-pokemon-types>
     </div>
   </div>
   <div class="right">
