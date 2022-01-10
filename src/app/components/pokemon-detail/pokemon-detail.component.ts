@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PokemonStats } from '../../interface/Pokemon';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -8,9 +9,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  id: number = 1;
-  name: string = '';
-  stats: any;
+  public id: number = 1;
+  public name: string = '';
 
   public ps: number = 1;
   public attack: number = 1;
@@ -18,22 +18,25 @@ export class PokemonDetailComponent implements OnInit {
   public specialA: number = 1;
   public specialD: number = 1;
   public speed: number = 1;
-  public image: any;
+  public image: string = '';
+
+  private stats: PokemonStats[] = [];
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { id: number, name: string, stats: any, image: any}
+    @Inject(MAT_DIALOG_DATA) public data: { id: number, name: string, stats: PokemonStats[], image: string}
   ) {}
 
   ngOnInit(): void {
     this.initializePokemon();
     this.showStats();
+    console.log(this.data)
   }
 
   initializePokemon() {
     this.id = this.data.id;
     this.name = this.data.name;
     this.stats = this.data.stats;
-    this.image = this.data.image
+    this.image = this.data.image;
   }
 
   showStats() {

@@ -13,7 +13,7 @@
     <label>Contraseña</label>
     <div style="display: flex;">
       <input style="width: 90%;" [type]="show ? 'text' : 'password'" formControlName="clave" placeholder="Contraseña" />
-      <button type="button" class="bttn-mostrar" (click)="showPassword()">{{show ? 'Mostrar' : 'Ocultar'}}</button>
+      <button type="button" class="bttn-mostrar btn" (click)="showPassword()">{{show ? 'Mostrar' : 'Ocultar'}}</button>
     </div>
     <span *ngIf="formLogin.get('clave')?.errors && formLogin.get('clave')?.dirty">
       <p style="margin-bottom: 0; font-size: 11px;"
@@ -26,6 +26,7 @@
       </p>
     </span>
 
-    <button type="submit" [disabled]="formLogin.invalid" class="bttn-iniciar">Iniciar sesión</button>
+
+    <button type="submit" [disabled]="formLogin.invalid" class="btn bttn-iniciar mt-5">Iniciar sesión</button>
   </form>
 </section>

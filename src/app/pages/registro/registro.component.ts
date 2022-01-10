@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RegistroDetailComponent } from 'src/app/components/registro-detail/registro-detail.component';
+
 
 @Component({
   selector: 'app-registro',
@@ -11,7 +14,8 @@ export class RegistroComponent implements OnInit {
   formRegistro:FormGroup;
 
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private matDialog: MatDialog
   ) {
     this.formRegistro = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(4)]],
@@ -23,7 +27,12 @@ export class RegistroComponent implements OnInit {
   }
 
   registrar(){
-    console.log(this.formRegistro.value);
+    console.log(this.formRegistro.value.nombre);
+    this.matDialog.open(RegistroDetailComponent, {
+      data : {
+        nombre: this.formRegistro.value.nombre
+      }
+    })
   }
 
 

@@ -1,0 +1,9 @@
+.modal-container{
+  background-color: #D30A40;
+  padding: 20px;
+  height: 143px;
+}
+
+::ng-deep.mat-dialog-container {
+  padding: 0px !important;
+}

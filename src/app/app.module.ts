@@ -19,22 +19,24 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 
 // componentes
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { PokemonTypesComponent } from './components/pokemon-types/pokemon-types.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { PokemonTypesComponent } from './components/pokemon-types/pokemon-types.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { RegistroDetailComponent } from './components/registro-detail/registro-detail.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    PokedexComponent,
     LoginComponent,
     RegistroComponent,
     NavbarComponent,
     PokemonTypesComponent,
-    PokedexComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    RegistroDetailComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,

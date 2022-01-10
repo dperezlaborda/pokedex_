@@ -1,3 +1,46 @@
+.loading{
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.type{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokedex{
+  background-color: #D30A40;
+  box-shadow: -2px 2px 8px 3px rgba(0,0,0,0.75);
+  height: 450px;
+  padding: 30px;
+  width: 350px;
+}
+
+.left{
+  border-radius: 35px 10px 10px 35px;
+}
+
+.right{
+  border-radius: 10px 35px 35px 10px;
+}
+
+.circle{
+  background-color: #27DEF2;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-bottom: 22px;
+}
+
 .rectangle{
   background-color: #5FC480;
   width: 150px;
@@ -8,7 +51,7 @@
 
 .grey-rectangle{
   background-color: #E3E3E3;
-  width: 280px;
+  width: 100%;
   height: 200px;
   border-radius: 10px;
   position: relative;
@@ -43,6 +86,41 @@
   width: 110px;
 }
 
+.bttn-container{
+  background-color: #E3E3E3;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.icon-size{
+  font-size: 30px;
+  align-self: center;
+}
+
 .white{
   color: #FFFFFF;
+}
+
+.black-rectangles{
+  background-color: #084035;
+  width: 130px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+
+.types-container{
+  background-color: #084035;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.bttn-hover:hover{
+  background-color: #a7a6a6;
+}
+
+.mat-progress-spinner{
+  width: 50px;
+  height: 50px;
 }

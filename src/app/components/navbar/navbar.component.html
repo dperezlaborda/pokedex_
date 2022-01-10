@@ -1,10 +1,12 @@
 <mat-toolbar class="navbar">
-  <span>Pokedex</span>
+  <span routerLink="/" style="cursor: pointer;">Pokedex</span>
   <div>
-    <button mat-icon-button class="example-icon">
+    <span>Crear Cuenta</span>
+    <button mat-icon-button class="example-icon mr-5" routerLink="/crear-cuenta">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon">
+    <span>Ingresar</span>
+    <button mat-icon-button class="example-icon" routerLink="/ingresar">
       <mat-icon>login</mat-icon>
     </button>
   </div>
